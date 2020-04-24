@@ -37,18 +37,18 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 100F);
             this.label1.Location = new System.Drawing.Point(208, 146);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(444, 153);
+            this.label1.Size = new System.Drawing.Size(481, 153);
             this.label1.TabIndex = 0;
-            this.label1.Text = "MEEP";
+            this.label1.Text = "TRY!!!!";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // Form1
+            // Search
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.label1);
-            this.Name = "Form1";
+            this.Name = "Search";
             this.Text = "Form1";
             this.ResumeLayout(false);
             this.PerformLayout();
