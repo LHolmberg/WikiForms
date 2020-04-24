@@ -21,5 +21,10 @@ namespace WikiForms
         {
 
         }
+
+        private void Search_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
