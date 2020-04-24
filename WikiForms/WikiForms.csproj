@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="RandomizerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RandomizerForm.Designer.cs">
+      <DependentUpon>RandomizerForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Search.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -63,6 +69,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="RandomizerForm.resx">
+      <DependentUpon>RandomizerForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
