@@ -16,8 +16,7 @@ namespace WikiForms
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
-            Console.WriteLine("Hello people!");
+            Application.Run(new Search());
         }
     }
 }
