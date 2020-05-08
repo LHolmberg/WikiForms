@@ -46,6 +46,15 @@ namespace WikiForms
             selectedIndex = LinkListBox.SelectedIndex;
         }
 
+        private void LinkListBox_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            int index = this.LinkListBox.IndexFromPoint(e.Location);
+            if (index != System.Windows.Forms.ListBox.NoMatches)
+            {
+                LoadLabel.Text = LinkListBox.Text;
+            }
+        }
+
         private void GoToLinkButton_Click(object sender, EventArgs e)
         {
         }
