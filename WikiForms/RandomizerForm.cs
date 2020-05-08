@@ -48,7 +48,11 @@ namespace WikiForms
 
         private void LinkListBox_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            LoadLabel.Text = "mep";
+            int index = this.LinkListBox.IndexFromPoint(e.Location);
+            if (index != System.Windows.Forms.ListBox.NoMatches)
+            {
+                LoadLabel.Text = LinkListBox.Text;
+            }
         }
 
         private void GoToLinkButton_Click(object sender, EventArgs e)

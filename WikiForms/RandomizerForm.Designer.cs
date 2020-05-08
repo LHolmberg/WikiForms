@@ -54,6 +54,7 @@
             this.LinkListBox.Size = new System.Drawing.Size(579, 531);
             this.LinkListBox.TabIndex = 1;
             this.LinkListBox.SelectedIndexChanged += new System.EventHandler(this.LinkListBox_SelectedIndexChanged);
+            this.LinkListBox.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.LinkListBox_MouseDoubleClick);
             // 
             // LoadLabel
             // 
