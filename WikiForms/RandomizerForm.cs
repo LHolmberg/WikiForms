@@ -45,6 +45,11 @@ namespace WikiForms
             selectedIndex = LinkListBox.SelectedIndex;
         }
 
+        private void LinkListBox_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            LoadLabel.Text = "mep";
+        }
+
         private void GoToLinkButton_Click(object sender, EventArgs e)
         {
         }
