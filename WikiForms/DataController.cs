@@ -17,27 +17,21 @@ namespace WikiForms
         {
             JArray titles;
             JObject contentObject;
+            WebClient wc = new WebClient();
 
             string titleURL = "https://en.wikipedia.org/w/api.php?action=opensearch&search=" + searchTerm;
        
+            var titlesJson = wc.DownloadString(titleURL);
 
-            using (WebClient wc = new WebClient())
-            {
-                var titlesJson = wc.DownloadString(titleURL);
-
-                titles = (JArray)JsonConvert.DeserializeObject(titlesJson);
-            }
+            titles = (JArray)JsonConvert.DeserializeObject(titlesJson);
             
             for (int i = 0; i < titles[1].Count(); i++)
             {
                 Dictionary<string, string> value = new Dictionary<string, string>();
-                using (WebClient wc = new WebClient())
-                {
+                var contentsJson = wc.DownloadString("https://en.wikipedia.org/w/api.php?action=parse&page="+ titles[1][i] +"&prop=wikitext&formatversion=2&format=json");
 
-                    var contentsJson = wc.DownloadString("https://en.wikipedia.org/w/api.php?action=parse&page="+ titles[1][i] +"&prop=wikitext&formatversion=2&format=json");
+                contentObject = (JObject)JsonConvert.DeserializeObject(contentsJson);
 
-                    contentObject = (JObject)JsonConvert.DeserializeObject(contentsJson);
-                }
                 value.Add(titles[1][i].ToString(), contentObject["parse"]["wikitext"].ToString());
                 list.AddLast(value);
                 Console.WriteLine("Added");
