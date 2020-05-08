@@ -12,7 +12,7 @@ namespace WikiForms
 {
     public partial class RandomizerForm : Form
     {
-        DataController data;
+        DataController data = new DataController("c");
         Random randomValue = new Random();
         int selectedIndex;
 
@@ -32,11 +32,12 @@ namespace WikiForms
             LinkListBox.Items.Clear();
 
             LoadLabel.Text = "loading...";
-            for (int i = 0; i < 10; i++)
-            {
-                data = new DataController(Randomizer(randomValue.Next(1, 3)));
-                LinkListBox.Items.Add(data.list.ElementAt(randomValue.Next(data.list.Count)).First());
-            }
+            LinkListBox.Items.Add(data.list.ElementAt(0).First());
+
+            //for (int i = 0; i < 10; i++)
+            //{
+            //    //LinkListBox.Items.Add(data.list.ElementAt(randomValue.Next(data.list.Count)).First());
+            //}
 
             LoadLabel.Text = "";
         }
@@ -48,11 +49,10 @@ namespace WikiForms
 
         private void LinkListBox_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            int index = this.LinkListBox.IndexFromPoint(e.Location);
-            if (index != System.Windows.Forms.ListBox.NoMatches)
-            {
-                LoadLabel.Text = LinkListBox.Text;
-            }
+                InfoPage info = new InfoPage();
+                info.Create_InfoPage(data.list.ElementAt(0).First().ToString(), data.list.ElementAt(selectedIndex).Skip(1).First().ToString());
+                info.Show();
+                this.Hide();
         }
 
         private void GoToLinkButton_Click(object sender, EventArgs e)
