@@ -16,7 +16,8 @@ namespace WikiForms
         public DataController(string searchTerm)
         {
             JArray titles;
-            JObject contents;
+            JObject contentObject;
+
             string titleURL = "https://en.wikipedia.org/w/api.php?action=opensearch&search=" + searchTerm;
        
 
@@ -33,11 +34,11 @@ namespace WikiForms
                 using (WebClient wc = new WebClient())
                 {
 
-                    var contentsJson = wc.DownloadString("https://en.wikipedia.org/w/api.php?action=parse&page=Pet_door&prop=wikitext&formatversion=2&format=json");
+                    var contentsJson = wc.DownloadString("https://en.wikipedia.org/w/api.php?action=parse&page="+ titles[1][i] +"&prop=wikitext&formatversion=2&format=json");
 
-                    contents = (JObject)JsonConvert.DeserializeObject(contentsJson);
+                    contentObject = (JObject)JsonConvert.DeserializeObject(contentsJson);
                 }
-                value.Add(titles[1][i].ToString(), contents.ToString());
+                value.Add(titles[1][i].ToString(), contentObject["parse"]["wikitext"].ToString());
                 list.AddLast(value);
                 Console.WriteLine("Added");
             }
