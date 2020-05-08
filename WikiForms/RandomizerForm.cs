@@ -12,7 +12,7 @@ namespace WikiForms
 {
     public partial class RandomizerForm : Form
     {
-        int[] randomizedArray = new int[20];
+        DataController data;
         Random randomValue = new Random();
         int selectedIndex;
 
@@ -23,34 +23,38 @@ namespace WikiForms
 
         private void RandomizerForm_Load(object sender, EventArgs e)
         {
-            GoToLinkButton.Enabled = false;
-            TestBox.Enabled = false;
+            LoadLabel.Text = "";
         }
 
         private void RandomizerButton_Click(object sender, EventArgs e)
         {
             LinkListBox.Items.Clear();
-            TestBox.Clear();
-            GoToLinkButton.Enabled = false;
 
-            for(int i = 0; i < randomizedArray.Length; i++)
+            LoadLabel.Text = "loading...";
+            for (int i = 0; i < 10; i++)
             {
-                randomizedArray[i] = randomValue.Next();
-                LinkListBox.Items.Add(randomizedArray[i]);
+                data = new DataController(Randomizer(randomValue.Next(1, 3)));
+                LinkListBox.Items.Add(data.list.ElementAt(randomValue.Next(data.list.Count)).First());
             }
+
+            LoadLabel.Text = "";
         }
 
         private void LinkListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            GoToLinkButton.Enabled = true;
-            TestBox.Text = LinkListBox.SelectedIndex.ToString();
             selectedIndex = LinkListBox.SelectedIndex;
         }
 
         private void GoToLinkButton_Click(object sender, EventArgs e)
         {
-            //Go to link and such
         }
 
-    }//MAKE THE PROGRAM PAGE SAY "SEARCH" BEFORE PUSHING!!!!!
+        private string Randomizer(int length)
+        {
+            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+
+            return new string(Enumerable.Repeat(chars, length).Select(s => s[randomValue.Next(s.Length)]).ToArray());
+        }
+
+    }//MAKE THE PROGRAM PAGE SAY "SEARCH" BEFORE PUSHING TO GIT!!!!!
 }

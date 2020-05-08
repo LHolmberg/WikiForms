@@ -9,9 +9,9 @@ using Newtonsoft.Json.Linq;
 
 namespace WikiForms
 {
-    class DataController
+    public class DataController
     {
-        LinkedList<Dictionary<String, String>> list = new LinkedList<Dictionary<string, string>>();
+        public LinkedList<Dictionary<String, String>> list = new LinkedList<Dictionary<string, string>>();
 
         public DataController(string searchTerm)
         {

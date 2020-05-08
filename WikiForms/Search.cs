@@ -26,5 +26,10 @@ namespace WikiForms
         {
 
         }
+
+        private void enterButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
