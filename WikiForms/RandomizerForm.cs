@@ -12,7 +12,8 @@ namespace WikiForms
 {
     public partial class RandomizerForm : Form
     {
-        DataController data = new DataController("c");
+
+        DataController[] datas = new DataController[10];
         Random randomValue = new Random();
         int selectedIndex;
 
@@ -30,9 +31,13 @@ namespace WikiForms
         private void RandomizerButton_Click(object sender, EventArgs e)
         {
             LinkListBox.Items.Clear();
-
             LoadLabel.Text = "loading...";
-            LinkListBox.Items.Add(data.list.ElementAt(0).First());
+
+            for (int i = 0; i < 10; i++)
+                datas[i] = new DataController(Randomizer(2));
+
+            for(int i = 0; i < datas.Length; i++)
+                LinkListBox.Items.Add(datas[i].list[i][0]);
 
             //for (int i = 0; i < 10; i++)
             //{
@@ -49,10 +54,11 @@ namespace WikiForms
 
         private void LinkListBox_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-                InfoPage info = new InfoPage();
-                info.Create_InfoPage(data.list.ElementAt(0).First().ToString(), data.list.ElementAt(selectedIndex).Skip(1).First().ToString());
-                info.Show();
-                this.Hide();
+            InfoPage info = new InfoPage();
+            
+            info.Create_InfoPage(datas[selectedIndex].list[0][0], datas[selectedIndex].list[0][1]);
+            info.Show();
+            this.Hide();
         }
 
         private void GoToLinkButton_Click(object sender, EventArgs e)
