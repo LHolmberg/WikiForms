@@ -24,6 +24,7 @@ namespace WikiForms
         private void RandomizerForm_Load(object sender, EventArgs e)
         {
             LoadLabel.Text = "";
+            
         }
 
         private void RandomizerButton_Click(object sender, EventArgs e)
