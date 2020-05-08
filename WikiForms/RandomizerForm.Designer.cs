@@ -30,8 +30,7 @@
         {
             this.RandomizerButton = new System.Windows.Forms.Button();
             this.LinkListBox = new System.Windows.Forms.ListBox();
-            this.TestBox = new System.Windows.Forms.TextBox();
-            this.GoToLinkButton = new System.Windows.Forms.Button();
+            this.LoadLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // RandomizerButton
@@ -56,32 +55,22 @@
             this.LinkListBox.TabIndex = 1;
             this.LinkListBox.SelectedIndexChanged += new System.EventHandler(this.LinkListBox_SelectedIndexChanged);
             // 
-            // TestBox
+            // LoadLabel
             // 
-            this.TestBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.TestBox.Location = new System.Drawing.Point(934, 304);
-            this.TestBox.Name = "TestBox";
-            this.TestBox.Size = new System.Drawing.Size(152, 38);
-            this.TestBox.TabIndex = 2;
-            // 
-            // GoToLinkButton
-            // 
-            this.GoToLinkButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.GoToLinkButton.Location = new System.Drawing.Point(934, 387);
-            this.GoToLinkButton.Name = "GoToLinkButton";
-            this.GoToLinkButton.Size = new System.Drawing.Size(186, 52);
-            this.GoToLinkButton.TabIndex = 3;
-            this.GoToLinkButton.Text = "Go!";
-            this.GoToLinkButton.UseVisualStyleBackColor = true;
-            this.GoToLinkButton.Click += new System.EventHandler(this.GoToLinkButton_Click);
+            this.LoadLabel.AutoSize = true;
+            this.LoadLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.LoadLabel.Location = new System.Drawing.Point(84, 147);
+            this.LoadLabel.Name = "LoadLabel";
+            this.LoadLabel.Size = new System.Drawing.Size(97, 25);
+            this.LoadLabel.TabIndex = 2;
+            this.LoadLabel.Text = "Loading...";
             // 
             // RandomizerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1179, 629);
-            this.Controls.Add(this.GoToLinkButton);
-            this.Controls.Add(this.TestBox);
+            this.Controls.Add(this.LoadLabel);
             this.Controls.Add(this.LinkListBox);
             this.Controls.Add(this.RandomizerButton);
             this.Name = "RandomizerForm";
@@ -96,7 +85,6 @@
 
         private System.Windows.Forms.Button RandomizerButton;
         private System.Windows.Forms.ListBox LinkListBox;
-        private System.Windows.Forms.TextBox TestBox;
-        private System.Windows.Forms.Button GoToLinkButton;
+        private System.Windows.Forms.Label LoadLabel;
     }
 }
