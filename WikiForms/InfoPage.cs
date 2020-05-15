@@ -32,5 +32,10 @@ namespace WikiForms
         private void button1_Click(object sender, EventArgs e)
         {
         }
+
+        private void InfoPage_Load(object sender, EventArgs e)
+        {
+            InfoPanel.AutoScroll = true;
+        }
     }
 }

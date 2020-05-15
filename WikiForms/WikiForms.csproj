@@ -87,6 +87,9 @@
     <EmbeddedResource Include="RandomizerForm.resx">
       <DependentUpon>RandomizerForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Search.resx">
+      <DependentUpon>Search.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
