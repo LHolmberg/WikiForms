@@ -32,12 +32,6 @@ namespace WikiForms
             {
                 LinkListBox.Items.Add(results.list[i][0]);
             }
-
-            InfoPage info = new InfoPage();
-
-            //info.Create_InfoPage();
-            //info.Show();
-            //this.Hide();
         }
 
         private void LinkListBox_MouseDoubleClick(object sender, MouseEventArgs e)

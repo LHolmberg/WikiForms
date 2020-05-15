@@ -37,12 +37,7 @@ namespace WikiForms
                 datas[i] = new DataController(Randomizer(2));
 
             for(int i = 0; i < datas.Length; i++)
-                LinkListBox.Items.Add(datas[i].list[i][0]);
-
-            //for (int i = 0; i < 10; i++)
-            //{
-            //    //LinkListBox.Items.Add(data.list.ElementAt(randomValue.Next(data.list.Count)).First());
-            //}
+                LinkListBox.Items.Add(datas[i].list[datas[i].list.Length - 1][0]);
 
             LoadLabel.Text = "";
         }
@@ -56,7 +51,7 @@ namespace WikiForms
         {
             InfoPage info = new InfoPage();
             
-            info.Create_InfoPage(datas[selectedIndex].list[0][0], datas[selectedIndex].list[0][1]);
+            info.Create_InfoPage(datas[selectedIndex].list[datas[selectedIndex].list.Length - 1][0], datas[selectedIndex].list[datas[selectedIndex].list.Length - 1][1]);
             info.Show();
             this.Hide();
         }
@@ -72,5 +67,5 @@ namespace WikiForms
             return new string(Enumerable.Repeat(chars, length).Select(s => s[randomValue.Next(s.Length)]).ToArray());
         }
 
-    }//MAKE THE PROGRAM PAGE SAY "SEARCH" BEFORE PUSHING TO GIT!!!!!
+    }
 }

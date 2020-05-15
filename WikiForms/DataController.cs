@@ -28,10 +28,10 @@ namespace WikiForms
 
             for (int i = 0; i < titles[1].Count(); i++)
             {
-                var contentsJson = wc.DownloadString("https://en.wikipedia.org/w/api.php?action=parse&page=" + titles[1][i] + "&prop=wikitext&formatversion=2&format=json");
+                var contentsJson = wc.DownloadString("https://en.wikipedia.org/w/api.php?action=parse&page=" + titles[1][i] + "&prop=text&formatversion=2&format=json");
 
                 contentObject = (JObject)JsonConvert.DeserializeObject(contentsJson);
-                string[] val = new string[2] { titles[1][i].ToString(), Regex.Replace(contentObject["parse"]["wikitext"].ToString(), @"<[^>]*>", String.Empty) };
+                string[] val = new string[2] { titles[1][i].ToString(), Regex.Replace(contentObject["parse"]["text"].ToString(), @"<[^>]*>", String.Empty) };
                 list[i] = val;
             }
         }

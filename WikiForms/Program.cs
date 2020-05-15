@@ -15,7 +15,7 @@ namespace WikiForms
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new RandomizerForm());
+            Application.Run(new Search());
         }
     }
 }
